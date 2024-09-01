@@ -153,11 +153,11 @@ To use this module, follow these steps:
             **1Month Last Tuesday**
             - **Explanation**: Repeats every month on the last Tuesday of the month.
          3. **Weekly Recurrence with Specific Weekday**<br>
-            **Week Tuesday**
+            **3Week Tuesday**
             - **Explanation**: Repeats every 3 weeks on Tuesday. No offset is available for this pattern.
          4. **Daily Recurrence**<br>
             **3Day**
-            - **Explanation**: Repeats every 3 days. No specific day of the week or offset is applied.
+            - **Explanation**: Repeats every 3 days. No specific day of the week or offset is available.
             
             ### Notes
             
