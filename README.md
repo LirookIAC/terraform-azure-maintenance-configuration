@@ -18,8 +18,8 @@ terraform {
   }
 }
 ```
-Terraform: Tested with version 1.7.5
-AzureRM Provider: Tested with version 3.116.0
+-Terraform: Tested with version 1.7.5
+-AzureRM Provider: Tested with version 3.116.0
 
 ## Outputs
 
