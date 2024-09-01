@@ -4,6 +4,36 @@
 
 This module creates an Azure Maintenance Configuration resource. The maintenance configuration helps manage updates and patches for your Azure VMs Guest OS.
 
+## Version Constraints
+
+To ensure compatibility with this module, the following version constraints apply:
+
+```hcl
+terraform {
+  required_version = ">= 1.0.0, < 2.0.0"
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.112.0, < 4.0.0"
+    }
+  }
+}
+```
+Terraform: Tested with version 1.7.5
+AzureRM Provider: Tested with version 3.116.0
+
+## Outputs
+
+This module provides the following output:
+
+```hcl
+output "maintenance_configuration_id" {
+  value = azurerm_maintenance_configuration.maintenance_configuration.id
+}
+```
+`maintenance_configuration_id`: The ID of the created maintenance configuration resource.
+This section details the output variable provided by the module and its purpose.
+
 ## Usage
 
 To use this module, follow these steps:
