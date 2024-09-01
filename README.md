@@ -1,7 +1,6 @@
-# terraform-azure-maintenance-configuration
-
 # Azure Maintenance Configuration Module
 
+## Overview
 This module creates an Azure Maintenance Configuration resource. The maintenance configuration helps manage updates and patches for your Azure VMs Guest OS.
 
 ## Version Constraints
