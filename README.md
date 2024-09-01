@@ -126,8 +126,7 @@ To use this module, follow these steps:
        - **`time_zone`** (string): The time zone for the maintenance window.
        - **`recur_every`** (string, optional): Optional recurrence pattern.
          ### Format and Examples for recur_every
-         The `recur_every` variable supports different recurrence patterns based on frequency and optional offsets. The general format is:
-         [<interval>][<frequency>][<day-of-week>][<offset>]
+         The `recur_every` variable supports different recurrence patterns based on frequency and optional offsets.
          #### Frequency Intervals
          
          - **`Day`**: Repeats every day.
@@ -147,17 +146,17 @@ To use this module, follow these steps:
          
          Here are some examples of how to use the `recur_every` variable:
          
-         1. **Monthly Recurrence with Specific Weekday and Offset**
-            1Month Third Tuesday Offset4
+         1. **Monthly Recurrence with Specific Weekday and Offset**<br>
+            **1Month Third Tuesday Offset4**
             - **Explanation**: Repeats every month on the third Tuesday of the month, with an additional offset of 4 days.
-         2. **Monthly Recurrence with Last Weekday**
-            1Month Last Tuesday
+         2. **Monthly Recurrence with Last Weekday**<br>
+            **1Month Last Tuesday**
             - **Explanation**: Repeats every month on the last Tuesday of the month.
-         3. **Weekly Recurrence with Specific Weekday**
-            3Week Tuesday
+         3. **Weekly Recurrence with Specific Weekday**<br>
+            **Week Tuesday**
             - **Explanation**: Repeats every 3 weeks on Tuesday. No offset is available for this pattern.
-         4. **Daily Recurrence**
-            3Day
+         4. **Daily Recurrence**<br>
+            **3Day**
             - **Explanation**: Repeats every 3 days. No specific day of the week or offset is applied.
             
             ### Notes
