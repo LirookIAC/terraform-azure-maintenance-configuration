@@ -1,4 +1,4 @@
-# terraform-azure-maintenance-configuration# Azure Maintenance Configuration Module
+# terraform-azure-maintenance-configuration
 
 # Azure Maintenance Configuration Module
 
