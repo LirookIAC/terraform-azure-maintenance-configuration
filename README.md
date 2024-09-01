@@ -96,6 +96,47 @@ To use this module, follow these steps:
        - **`duration`** (string, optional): The optional duration of the maintenance window (format: `HH:MM`).
        - **`time_zone`** (string): The time zone for the maintenance window.
        - **`recur_every`** (string, optional): Optional recurrence pattern.
+         ### Format and Examples for recur_every
+         The `recur_every` variable supports different recurrence patterns based on frequency and optional offsets. The general format is:
+         [<interval>][<frequency>][<day-of-week>][<offset>]
+         #### Frequency Intervals
+         
+         - **`Day`**: Repeats every day.
+         - **`Week`**: Repeats every week.
+         - **`Month`**: Repeats every month.
+         - **`Year`**: Repeats every year.
+         
+         #### Day of Week
+         
+         Specifies which day(s) of the week the recurrence should apply to, e.g., `Monday`, `Tuesday`, etc.
+         
+         #### Offset (Optional)
+         
+         The offset can modify the recurrence to apply to a specific occurrence of a day or a week in the month, e.g., `First`, `Second`, `Last`, or `Offset<N>`.
+         
+         ### Examples
+         
+         Here are some examples of how to use the `recur_every` variable:
+         
+         1. **Monthly Recurrence with Specific Weekday and Offset**
+            1Month Third Tuesday Offset4
+            - **Explanation**: Repeats every month on the third Tuesday of the month, with an additional offset of 4 days.
+         2. **Monthly Recurrence with Last Weekday**
+            1Month Last Tuesday
+            - **Explanation**: Repeats every month on the last Tuesday of the month.
+         3. **Weekly Recurrence with Specific Weekday**
+            3Week Tuesday
+            - **Explanation**: Repeats every 3 weeks on Tuesday. No offset is available for this pattern.
+         4. **Daily Recurrence**
+            3Day
+            - **Explanation**: Repeats every 3 days. No specific day of the week or offset is applied.
+            
+            ### Notes
+            
+            - The `recur_every` pattern can be combined with other parameters to create complex schedules.
+            - The interval and frequency dictate how often the recurrence happens, while the optional day-of-week and offset provide additional customization.
+            
+            Ensure that the chosen pattern aligns with your maintenance window requirements and is supported by the system handling the configuration.
      - **Default**: (All fields required except `expiration_date_time`, `duration`, and `recur_every`)
 
 ## Example Usage
