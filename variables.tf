@@ -251,7 +251,7 @@ variable "maintainence_window" {
       # Validate start_date_time
       can(regex("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$", var.maintainence_window.start_date_time)),
       # Validate expiration_date_time if provided
-      var.window.expiration_date_time == null || can(regex("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$", var.maintainence_window.expiration_date_time)),
+      var.maintainence_window.expiration_date_time == null || can(regex("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$", var.maintainence_window.expiration_date_time)),
       # Validate duration if provided
       var.maintainence_window.duration == null || can(regex("^[0-9]{2}:[0-9]{2}$", var.maintainence_window.duration)),
       # Validate time_zone
