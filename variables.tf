@@ -397,7 +397,7 @@ variable "maintainence_window" {
           "Tonga Standard Time",
           "Samoa Standard Time",
           "Line Islands Standard Time"
-        ], var.window.time_zone),
+        ], var.maintainence_window.time_zone),
       # Validate recur_every if provided
       var.maintainence_window.recur_every == null || can(regex("^[0-9]+(Month|Week|Day|Year) (First|Second|Third|Fourth|Last) (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)( Offset[0-9]+)?$", var.maintainence_window.recur_every))
     ])
