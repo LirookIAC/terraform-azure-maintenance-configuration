@@ -23,7 +23,7 @@ variable "linux_classifications_to_include" {
   type        = list(string)
   default     = ["Critical", "Security", "Other"]
   validation {
-    condition = allTrue(
+    condition = alltrue(
       [for c in var.linux_classifications_to_include : contains(["Critical", "Security", "Other"], c)]
     )
     error_message = "Valid values for linux_classifications_to_include are Critical, Security, and Other."
@@ -47,7 +47,7 @@ variable "windows_classifications_to_include" {
   type        = list(string)
   default     = ["Critical", "Security", "UpdateRollup", "FeaturePack", "ServicePack", "Definition", "Tools", "Updates"]
   validation {
-    condition = allTrue(
+    condition = alltrue(
       [for c in var.windows_classifications_to_include : contains(["Critical", "Security", "UpdateRollup", "FeaturePack", "ServicePack", "Definition", "Tools", "Updates"], c)]
     )
     error_message = "Valid values for windows_classifications_to_include are Critical, Security, UpdateRollup, FeaturePack, ServicePack, Definition, Tools, and Updates."
