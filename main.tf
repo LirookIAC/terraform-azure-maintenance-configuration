@@ -22,9 +22,9 @@ resource "azurerm_maintenance_configuration" "maintenance_configuration" {
     reboot = var.reboot_preference
   }
   window {
-    duration        = var.window.duration
-    recur_every     = var.window.recur_every
-    start_date_time = var.window.start_date_time
-    time_zone       = var.window.time_zone
+    duration        = var.maintainence_window.duration
+    recur_every     = var.maintainence_window.recur_every
+    start_date_time = var.maintainence_window.start_date_time
+    time_zone       = var.maintainence_window.time_zone
   }
 }

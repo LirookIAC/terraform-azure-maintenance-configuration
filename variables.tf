@@ -236,7 +236,7 @@ locals {
   ]
 }
 
-variable "window" {
+variable "maintainence_window" {
   description = "Configuration for the maintenance window."
   type = object({
     start_date_time      = string
@@ -249,11 +249,11 @@ variable "window" {
   validation {
     condition = alltrue([
       # Validate start_date_time
-      can(regex("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$", var.window.start_date_time)),
+      can(regex("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$", var.maintainence_window.start_date_time)),
       # Validate expiration_date_time if provided
-      var.window.expiration_date_time == null || can(regex("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$", var.window.expiration_date_time)),
+      var.window.expiration_date_time == null || can(regex("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$", var.maintainence_window.expiration_date_time)),
       # Validate duration if provided
-      var.window.duration == null || can(regex("^[0-9]{2}:[0-9]{2}$", var.window.duration)),
+      var.maintainence_window.duration == null || can(regex("^[0-9]{2}:[0-9]{2}$", var.maintainence_window.duration)),
       # Validate time_zone
       contains(
         ["Dateline Standard Time",
@@ -399,7 +399,7 @@ variable "window" {
           "Line Islands Standard Time"
         ], var.window.time_zone),
       # Validate recur_every if provided
-      var.window.recur_every == null || can(regex("^[0-9]+(Month|Week|Day|Year) (First|Second|Third|Fourth|Last) (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)( Offset[0-9]+)?$", var.window.recur_every))
+      var.maintainence_window.recur_every == null || can(regex("^[0-9]+(Month|Week|Day|Year) (First|Second|Third|Fourth|Last) (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)( Offset[0-9]+)?$", var.maintainence_window.recur_every))
     ])
     error_message = "Invalid value for one or more of the following fields: start_date_time, expiration_date_time, duration, time_zone, recur_every."
   }
