@@ -399,7 +399,7 @@ variable "maintainence_window" {
           "Line Islands Standard Time"
         ], var.maintainence_window.time_zone),
       # Validate recur_every if provided
-      var.maintainence_window.recur_every == null || can(regex("^[0-9]+(Month|Week|Day|Year) (First|Second|Third|Fourth|Last) (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)( Offset[0-9]+)?$", var.maintainence_window.recur_every))
+      # var.maintainence_window.recur_every == null || can(regex("^[0-9]+(Month|Week|Day|Year) (First|Second|Third|Fourth|Last) (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)( Offset[0-9]+)?$", var.maintainence_window.recur_every))
     ])
     error_message = "Invalid value for one or more of the following fields: start_date_time, expiration_date_time, duration, time_zone, recur_every."
   }
