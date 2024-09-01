@@ -2,7 +2,7 @@
 
 # Azure Maintenance Configuration Module
 
-This module creates an Azure Maintenance Configuration resource. The maintenance configuration helps manage updates and patches for your Azure resources.
+This module creates an Azure Maintenance Configuration resource. The maintenance configuration helps manage updates and patches for your Azure VMs Guest OS.
 
 ## Usage
 
