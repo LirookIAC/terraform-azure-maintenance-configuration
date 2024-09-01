@@ -98,17 +98,69 @@ To use this module, follow these steps:
        - **`recur_every`** (string, optional): Optional recurrence pattern.
      - **Default**: (All fields required except `expiration_date_time`, `duration`, and `recur_every`)
 
-## Example Configuration
+## Example Usage
 
-To use the module, you need to specify the above variables in your Terraform configuration. This setup will create an Azure Maintenance Configuration with the provided settings.
+This section provides an example of how to use the Azure Maintenance Configuration module in your Terraform configuration.
 
-### Summary
+```hcl
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = ">= 3.0"
+    }
+  }
+}
 
-- **Define the module source.**
-- **Configure required and optional variables to suit your needs.**
-- **Apply the configuration using Terraform.**
+provider "azurerm" {
+  features {}
+}
 
-For additional information, consult the Terraform documentation or reach out to your team for support with module integration and usage.
+module "maintenance_configuration" {
+  source = "git::https://github.com/LirookIAC/terraform-azure-maintenance-configuration.git"
+
+  # Pass any required variables to the module
+  maintenance_configuration_name            = "testMC"
+  maintenance_configuration_location         = "West Europe"
+  maintenance_configuration_resource_group  = "test2"
+  in_guest_user_patch_mode                  = "User"
+  maintainence_window = {
+    duration        = "03:55"
+    recur_every     = "1Month Second Tuesday Offset4"
+    start_date_time = "2024-09-13 03:00"
+    time_zone       = "India Standard Time"
+  }
+  tags = {
+    "env" = "test"
+  }
+}
+
+output "maintenance_configuration_id" {
+  value = module.maintenance_configuration.maintenance_configuration_id
+}
+```
+## Explanation
+
+- **`terraform` Block**: Specifies the required provider (`azurerm`) and its version.
+
+- **`provider "azurerm"` Block**: Configures the Azure provider with default settings.
+
+- **`module "maintenance_configuration"` Block**: Defines the module and passes variables to configure the maintenance setup.
+  - **`maintenance_configuration_name`**: Sets the name of the maintenance configuration.
+  - **`maintenance_configuration_location`**: Specifies the Azure location for the configuration.
+  - **`maintenance_configuration_resource_group`**: Provides the resource group where the maintenance configuration will be applied.
+  - **`in_guest_user_patch_mode`**: Defines the in-guest user patch mode (e.g., "User").
+  - **`maintainence_window`**: Configures the maintenance window, including:
+    - **`duration`**: Duration of the maintenance window.
+    - **`recur_every`**: Recurrence pattern for the maintenance window.
+    - **`start_date_time`**: Start date and time for the maintenance window.
+    - **`time_zone`**: Time zone of the maintenance window.
+  - **`tags`**: Assigns tags to the resources for organizational purposes.
+
+- **`output "maintenance_configuration_id"` Block**: Outputs the ID of the created maintenance configuration.
+
+This example provides a template for setting up an Azure Maintenance Configuration using the module. Customize the variable values according to your requirements.
+
 
 
 
